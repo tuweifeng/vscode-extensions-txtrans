@@ -18,7 +18,7 @@ X-Runtime: 0.069586
 "Transfer-Encoding": "chunked",
 "Vary": "Accept-Encoding",
 
-"X-Runtime": "0.069586",
+"X-Runtime": 0.069586,
 ```
 
 3. Again press **cmd shift p** and enter **toggleJsonCase**
@@ -28,7 +28,7 @@ X-Runtime: 0.069586
 Transfer-Encoding = "chunked"
 Vary = "Accept-Encoding"
 
-X-Runtime = "0.069586"
+X-Runtime = 0.069586
 ```
 
 ---
@@ -68,7 +68,7 @@ x-runtime: 0.069586
 Transfer-Encoding = "chunked"
 Vary = "Accept-Encoding"
 
-X-Runtime = "0.069586"
+X-Runtime = 0.069586
 ```
 
 2. Press **cmd shift p** and enter **toggleCamelCase**
@@ -78,7 +78,7 @@ X-Runtime = "0.069586"
 TransferEncoding = "chunked"
 Vary = "Accept-Encoding"
 
-XRuntime = "0.069586"
+XRuntime = 0.069586
 ```
 
 3. Again press **cmd shift p** and enter **toggleCamelCase**
@@ -88,7 +88,7 @@ XRuntime = "0.069586"
 transfer_encoding = "chunked"
 vary = "Accept-Encoding"
 
-xruntime = "0.069586"
+xruntime = 0.069586
 ```
 ---
 

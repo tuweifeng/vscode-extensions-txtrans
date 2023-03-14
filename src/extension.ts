@@ -50,6 +50,46 @@ function transSnakeCase(txt:string){
 }
 
 
+function transJsonField(field:string){
+	field = field.trim();
+
+	while (field.endsWith(",")){
+		field = field.substring(0, field.length-1)
+	}
+
+	if (field.length<1){
+		return `""`
+	}
+
+	if (field.startsWith(`"`) && field.endsWith(`"`)){
+		return field
+	}
+
+	// 整型数字 2342
+	if (/^\d+$/.test(field)){
+		return field
+	}
+	// 浮点型数字 343.445
+	else if (/^\d+\.\d+$/.test(field)){
+		return field
+	}
+	// bool型
+	let lowerfield = field.toLowerCase()
+	for (let b of ["false", "true"]){
+		if (b == lowerfield){
+			return lowerfield
+		}
+	}
+	// null
+	for (let b of ["none", "null"]){
+		if (b == lowerfield){
+			return "null"
+		}
+	}
+	return `"${field}"`
+}
+
+
 export function activate(context: vscode.ExtensionContext) {
 	vscode.commands.registerCommand('vscode-extensions-txtrans.toggleJsonCase', () => {
 		const editor = vscode.window.activeTextEditor;
@@ -64,14 +104,11 @@ export function activate(context: vscode.ExtensionContext) {
 
 		txt?.split(/[,]*\n/).forEach(line => {
 			line = line.trim();
-			// key = "value"
-			if (/^[a-zA-Z0-9\-]+\s*=\s*".+"[,]*$/.test(line)){
+			// key = value
+			if (/^[a-zA-Z0-9\-]+\s*=\s*.+[,]*$/.test(line)){
 				let [k, v] = line.split("=", 2);
 				k = k.trim();
-				v = v.trim();
-				if (v.endsWith(",")){
-					v = v.substring(0, v.length-1)
-				}
+				v = transJsonField(v);
 				if (flag == 0 || flag == 1){
 					items.push(`"${k}": ${v},`)
 					flag = 1;
@@ -80,49 +117,32 @@ export function activate(context: vscode.ExtensionContext) {
 					items.push(`${k} = ${v}`)
 				}
 			}
-
-			// key = value
-			else if (/^[a-zA-Z0-9\-]+\s*=.+$/.test(line)){
-				let [k, v] = line.split("=", 2);
-				k = k.trim();
-				v = v.trim();
-				if (flag == 0 || flag == 1){
-					items.push(`"${k}": "${v}",`)
-					flag = 1;
-				}
-				else if (flag == 2){
-					items.push(`${k} = "${v}"`)
-				}
-			}
-
-			// key : value
-			else if (/^[a-zA-Z0-9\-]+\s*:.+$/.test(line)){
+			
+			// "key": value
+			else if (/^"[a-zA-Z0-9\-]+"\s*:\s*.+[,]*$/.test(line)){
 				let [k, v] = line.split(":", 2);
 				k = k.trim();
-				v = v.trim();
-				if (flag == 0 || flag == 1){
-					items.push(`"${k}": "${v}",`)
-					flag = 1;
-				}
-				else if (flag == 2){
-					items.push(`${k} = "${v}"`)
-				}
-			}
-			// "key": "value"
-			else if (/^"[a-zA-Z0-9\-]+"\s*:\s*".+"[,]*$/.test(line)){
-				let [k, v] = line.split(":", 2);
-				k = k.trim();
-				v = v.trim();
-				if (v.endsWith(",")){
-					v = v.substring(0, v.length-1)
-				}
+				v = transJsonField(v);
 
 				if (flag == 0 || flag == 2){
 					items.push(`${k.substring(1, k.length-1)} = ${v}`)
 					flag = 2
 				}
 				else if (flag == 1){
-					items.push(`"${k}": "${v}",`)
+					items.push(`"${k}": ${v},`)
+				}
+			}
+			// key : value
+			else if (/^[a-zA-Z0-9\-]+\s*:.+$/.test(line)){
+				let [k, v] = line.split(":", 2);
+				k = k.trim();
+				v = transJsonField(v);
+				if (flag == 0 || flag == 1){
+					items.push(`"${k}": ${v},`)
+					flag = 1;
+				}
+				else if (flag == 2){
+					items.push(`${k} = ${v}`)
 				}
 			}
 			// 不符合情况的也保留

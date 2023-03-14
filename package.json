@@ -2,7 +2,7 @@
   "name": "toggleToggle",
   "displayName": "toggle toggle",
   "description": "Toggle uppercase/lowercase cammelcase/snakecase jsoncase",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "tuweifeng",
   "engines": {
     "vscode": "^1.76.0"
