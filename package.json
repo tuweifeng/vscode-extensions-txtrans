@@ -1,0 +1,96 @@
+{
+  "name": "vscode-extensions-txtrans",
+  "displayName": "toggle toggle",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "uppercase",
+    "lowercase",
+    "camelcase",
+    "snakecase",
+    "setaire"
+  ],
+  "icon": "images/icon.png",
+  "main": "./out/extension.js",
+  "activationEvents":[
+    "onCommand:vscode-extensions-txtrans.toggleJsonCase",
+    "onCommand:vscode-extensions-txtrans.toggleUpperCase",
+    "onCommand:vscode-extensions-txtrans.toggleCamelCase"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-extensions-txtrans.toggleJsonCase",
+        "title": "toggleJsonCase"
+      },
+      {
+        "command": "vscode-extensions-txtrans.toggleUpperCase",
+        "title": "toggleUpperCase"
+      },
+      {
+        "command": "vscode-extensions-txtrans.toggleCamelCase",
+        "title": "toggleCamelCase"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "vscode-extensions-txtrans.toggleJsonCase",
+        "key": "ctrl+shift+e",
+        "mac": "cmd+shift+e"
+      },
+      {
+        "command": "vscode-extensions-txtrans.toggleUpperCase",
+        "key": "ctrl+shift+e",
+        "mac": "cmd+shift+e"
+      },
+      {
+        "command": "vscode-extensions-txtrans.toggleCamelCase",
+        "key": "ctrl+shift+e",
+        "mac": "cmd+shift+e"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "vscode-extensions-txtrans.toggleCamelCase",
+          "group": "6_px"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "vscode-extensions-txtrans.toggleJsonCase",
+          "group": "6_px"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "vscode-extensions-txtrans.toggleUpperCase",
+          "group": "6_px"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.76.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "eslint": "^8.34.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5",
+    "@vscode/test-electron": "^2.2.3"
+  }
+}
