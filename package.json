@@ -11,12 +11,8 @@
     "url": "https://github.com/tuweifeng/vscode-extensions-txtrans"
   },
   "categories": [
-    "uppercase",
-    "lowercase",
-    "camelcase",
-    "snakecase",
-    "setaire",
-    "tuweifeng"
+    "Formatters",
+    "Other"
   ],
   "icon": "images/icon.png",
   "main": "./out/extension.js",

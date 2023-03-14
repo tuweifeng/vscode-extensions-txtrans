@@ -94,10 +94,8 @@ xruntime = "0.069586"
 
 ### Donate ☕️
 
-I am unemployed, no income...
-
 Thank you most sincerely
 
-![这是图片](https://github.com/tuweifeng/vscode-extensions-txtrans/blob/main/images/love.png?raw=true)
+![这是图片](images/love.png)
 
 Github: https://github.com/tuweifeng/vscode-extensions-txtrans
