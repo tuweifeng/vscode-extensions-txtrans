@@ -1,17 +1,22 @@
 {
-  "name": "vscode-extensions-txtrans",
+  "name": "toggleToggle",
   "displayName": "toggle toggle",
-  "description": "",
+  "description": "Toggle uppercase/lowercase cammelcase/snakecase jsoncase",
   "version": "0.0.1",
+  "publisher": "tuweifeng",
   "engines": {
     "vscode": "^1.76.0"
+  },
+  "repository": {
+    "url": "https://github.com/tuweifeng/vscode-extensions-txtrans"
   },
   "categories": [
     "uppercase",
     "lowercase",
     "camelcase",
     "snakecase",
-    "setaire"
+    "setaire",
+    "tuweifeng"
   ],
   "icon": "images/icon.png",
   "main": "./out/extension.js",

@@ -98,6 +98,6 @@ I am unemployed, no income...
 
 Thank you most sincerely
 
-![这是图片](/images/love.png "Magic Gardens")
+![这是图片](https://github.com/tuweifeng/vscode-extensions-txtrans/blob/main/images/love.png?raw=true)
 
-Github: https://github.com/tuweifeng
+Github: https://github.com/tuweifeng/vscode-extensions-txtrans
