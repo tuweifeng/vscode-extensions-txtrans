@@ -25,10 +25,10 @@ X-Runtime: 0.069586
 
     The text is replaced with:
 ```python
-Transfer-Encoding = "chunked"
+"Transfer-Encoding" = "chunked"
 Vary = "Accept-Encoding"
 
-X-Runtime = 0.069586
+"X-Runtime" = 0.069586
 ```
 
 ---
@@ -85,10 +85,10 @@ XRuntime = 0.069586
 
     The text is replaced with:
 ```python
-transfer_encoding = "chunked"
-vary = "Accept-Encoding"
+Transfer_encoding = "chunked"
+Vary = "Accept-Encoding"
 
-xruntime = 0.069586
+X_runtime = 0.069586
 ```
 ---
 

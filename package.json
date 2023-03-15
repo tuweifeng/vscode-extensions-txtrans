@@ -1,8 +1,8 @@
 {
   "name": "toggleToggle",
   "displayName": "toggle toggle",
-  "description": "Toggle uppercase/lowercase cammelcase/snakecase jsoncase",
-  "version": "0.0.2",
+  "description": "uppercase/lowercase cammelcase/snakecase jsoncase",
+  "version": "0.0.4",
   "publisher": "tuweifeng",
   "engines": {
     "vscode": "^1.76.0"
@@ -16,7 +16,7 @@
   ],
   "icon": "images/icon.png",
   "main": "./out/extension.js",
-  "activationEvents":[
+  "activationEvents": [
     "onCommand:vscode-extensions-txtrans.toggleJsonCase",
     "onCommand:vscode-extensions-txtrans.toggleUpperCase",
     "onCommand:vscode-extensions-txtrans.toggleCamelCase"
@@ -79,19 +79,20 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "vitest"
   },
   "devDependencies": {
-    "@types/vscode": "^1.76.0",
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
+    "@types/vscode": "^1.76.0",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
+    "@vscode/test-electron": "^2.2.3",
     "eslint": "^8.34.0",
     "glob": "^8.1.0",
     "mocha": "^10.2.0",
     "typescript": "^4.9.5",
-    "@vscode/test-electron": "^2.2.3"
+    "vitest": "^0.29.2"
   }
 }
